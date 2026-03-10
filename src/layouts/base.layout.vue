@@ -27,7 +27,9 @@ const toolStore = useToolStore();
 const { favoriteTools, toolsByCategory } = storeToRefs(toolStore);
 
 const tools = computed<ToolCategory[]>(() => [
-  ...(favoriteTools.value.length > 0 ? [{ name: t('tools.categories.favorite-tools'), components: favoriteTools.value }] : []),
+  ...(favoriteTools.value.length > 0
+    ? [{ name: t('tools.categories.favorite-tools'), components: favoriteTools.value }]
+    : []),
   ...toolsByCategory.value,
 ]);
 </script>
@@ -35,26 +37,19 @@ const tools = computed<ToolCategory[]>(() => [
 <template>
   <MenuLayout class="menu-layout" :class="{ isSmallScreen: styleStore.isSmallScreen }">
     <template #sider>
-      <RouterLink to="/" class="hero-wrapper">
-        <HeroGradient class="gradient" />
-        <div class="text-wrapper">
-          <div class="title">
-            IT - TOOLS
-          </div>
-          <div class="divider" />
-          <div class="subtitle">
-            {{ $t('home.subtitle') }}
-          </div>
+      <RouterLink to="/" class="block text-center mt-6 mb-8 decoration-none">
+        <div class="font-black text-2xl tracking-tighter italic text-white flex justify-center items-center">
+          HET<span class="text-emerald-500">OPS_</span
+          ><span class="text-gray-500 text-xs ml-2 font-mono mt-1">TOOLS</span>
+        </div>
+        <div class="text-gray-400 text-[10px] mt-2 uppercase tracking-widest font-mono">
+          {{ $t('home.subtitle') }}
         </div>
       </RouterLink>
 
       <div class="sider-content">
         <div v-if="styleStore.isSmallScreen" flex flex-col items-center>
           <locale-selector w="90%" />
-
-          <div flex justify-center>
-            <NavbarButtons />
-          </div>
         </div>
 
         <CollapsibleToolMenu :tools-by-category="tools" />
@@ -107,7 +102,13 @@ const tools = computed<ToolCategory[]>(() => [
         </c-tooltip>
 
         <c-tooltip :tooltip="$t('home.uiLib')" position="bottom">
-          <c-button v-if="config.app.env === 'development'" to="/c-lib" circle variant="text" :aria-label="$t('home.uiLib')">
+          <c-button
+            v-if="config.app.env === 'development'"
+            to="/c-lib"
+            circle
+            variant="text"
+            :aria-label="$t('home.uiLib')"
+          >
             <icon-mdi:brush-variant text-20px />
           </c-button>
         </c-tooltip>
@@ -115,27 +116,25 @@ const tools = computed<ToolCategory[]>(() => [
         <command-palette />
 
         <locale-selector v-if="!styleStore.isSmallScreen" />
-
-        <div>
-          <NavbarButtons v-if="!styleStore.isSmallScreen" />
-        </div>
-
-        <c-tooltip position="bottom" :tooltip="$t('home.support')">
-          <c-button
-            round
-            href="https://www.buymeacoffee.com/cthmsst"
-            rel="noopener"
-            target="_blank"
-            class="support-button"
-            :bordered="false"
-            @click="() => tracker.trackEvent({ eventName: 'Support button clicked' })"
-          >
-            {{ $t('home.buyMeACoffee') }}
-            <NIcon v-if="!styleStore.isSmallScreen" :component="Heart" ml-2 />
-          </c-button>
-        </c-tooltip>
       </div>
       <slot />
+
+      <!-- Fixed Status Bar Footer -->
+      <footer
+        class="fixed bottom-0 left-0 w-full bg-[#0a0a0a] border-t border-[#333] z-[100] flex justify-between items-center px-4 py-1.5 font-mono text-[10px] text-gray-400 shadow-[0_-5px_20px_rgba(0,0,0,0.5)]"
+      >
+        <div class="flex items-center gap-4">
+          <span class="bg-[#00ff41] text-black px-2 py-0.5 font-bold flex items-center gap-1.5 rounded-sm">NORMAL</span>
+          <span class="hidden sm:inline-block">hetops/tools</span>
+          <span class="text-blue-400 flex items-center gap-1.5">main</span>
+          <span class="hidden md:flex text-[#ffbd2e] items-center gap-1.5">v{{ version }}</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="hidden sm:inline-block font-bold">ALL_SYSTEMS_OPTIMAL</span>
+          <span class="text-emerald-500 flex items-center gap-1.5">OK</span>
+          <span class="hidden lg:inline-block">UTF-8</span>
+        </div>
+      </footer>
     </template>
   </MenuLayout>
 </template>
@@ -173,46 +172,10 @@ const tools = computed<ToolCategory[]>(() => [
 }
 
 .sider-content {
-  padding-top: 160px;
   padding-bottom: 200px;
 }
 
-.hero-wrapper {
-  position: absolute;
-  display: block;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  overflow: hidden;
-
-  .gradient {
-    margin-top: -65px;
-  }
-
-  .text-wrapper {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    top: 16px;
-    color: #fff;
-
-    .title {
-      font-size: 25px;
-      font-weight: 600;
-    }
-
-    .divider {
-      width: 50px;
-      height: 2px;
-      border-radius: 4px;
-      background-color: v-bind('themeVars.primaryColor');
-      margin: 0 auto 5px;
-    }
-
-    .subtitle {
-      font-size: 16px;
-    }
-  }
+.sider-content {
+  padding-bottom: 200px;
 }
 </style>

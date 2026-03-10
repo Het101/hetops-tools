@@ -6,52 +6,22 @@ const { icon, title } = toRefs(props);
 </script>
 
 <template>
-  <c-card class="colored-card">
-    <n-icon class="icon" size="40" :component="icon" />
-    <n-h3 class="title">
-      <n-ellipsis>{{ title }}</n-ellipsis>
-    </n-h3>
+  <div class="glass-card p-6 h-full flex flex-col justify-between group">
+    <div flex items-center mb-4 gap-4>
+      <n-icon
+        class="text-emerald-500 transition-transform group-hover:scale-110 group-hover:text-[#00f260]"
+        size="32"
+        :component="icon"
+      />
+      <n-h3 class="!mb-0 text-xl font-bold text-white group-hover:text-[#00f260] transition-colors">
+        <n-ellipsis>{{ title }}</n-ellipsis>
+      </n-h3>
+    </div>
 
-    <div class="description">
+    <div class="text-sm text-gray-400 line-clamp-3 leading-relaxed">
       <n-ellipsis :line-clamp="2" :tooltip="false">
         <slot />
       </n-ellipsis>
     </div>
-  </c-card>
+  </div>
 </template>
-
-<style lang="less" scoped>
-.colored-card {
-  background: rgb(37, 99, 108);
-  background: linear-gradient(48deg, rgba(37, 99, 108, 1) 0%, rgba(59, 149, 111, 1) 60%, rgba(20, 160, 88, 1) 100%);
-  color: #fff;
-  border: none;
-
-  .icon {
-    opacity: 0.7;
-  }
-
-  .title {
-    color: #fff;
-
-    margin: 5px 0;
-  }
-
-  .description {
-    opacity: 0.8;
-
-    margin: 5px 0;
-
-    ::v-deep(a) {
-      color: inherit;
-      text-decoration: underline;
-      font-weight: bold;
-      transition: color ease 0.2s;
-
-      &:hover {
-        color: rgb(20, 20, 20);
-      }
-    }
-  }
-}
-</style>

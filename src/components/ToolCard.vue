@@ -9,33 +9,29 @@ const theme = useThemeVars();
 </script>
 
 <template>
-  <router-link :to="tool.path" class="decoration-none">
-    <c-card class="h-full transition transition-duration-0.5s !border-2px !hover:border-primary">
-      <div flex items-center justify-between>
-        <n-icon class="text-neutral-400 dark:text-neutral-600" size="40" :component="tool.icon" />
-
-        <div flex items-center gap-8px>
-          <div
-            v-if="tool.isNew"
-            class="rounded-full px-8px py-3px text-xs text-white dark:text-neutral-800"
-            :style="{
-              'background-color': theme.primaryColor,
-            }"
-          >
-            {{ $t('toolCard.new') }}
+  <router-link :to="tool.path" class="decoration-none h-full block">
+    <div class="glass-card p-6 h-full flex flex-col justify-between group">
+      <div>
+        <div flex items-center justify-between mb-4>
+          <n-icon
+            class="text-emerald-500 transition-transform group-hover:scale-110 group-hover:text-[#00f260]"
+            size="32"
+            :component="tool.icon"
+          />
+          <div flex items-center gap-8px>
+            <div v-if="tool.isNew" class="rounded text-[10px] px-2 py-1 bg-emerald-500/10 text-emerald-400 font-mono">
+              {{ $t('toolCard.new') }}
+            </div>
+            <FavoriteButton :tool="tool" />
           </div>
-
-          <FavoriteButton :tool="tool" />
+        </div>
+        <div class="text-xl font-bold mb-3 text-white group-hover:text-[#00f260] transition-colors">
+          {{ tool.name }}
+        </div>
+        <div class="text-sm text-gray-400 line-clamp-3 leading-relaxed">
+          {{ tool.description }}
         </div>
       </div>
-
-      <div class="truncat my-5px text-lg text-black dark:text-white">
-        {{ tool.name }}
-      </div>
-
-      <div class="line-clamp-2 text-neutral-500 dark:text-neutral-400">
-        {{ tool.description }}
-      </div>
-    </c-card>
+    </div>
   </router-link>
 </template>

@@ -16,19 +16,19 @@ export const lightThemeOverrides: GlobalThemeOverrides = {
 
 export const darkThemeOverrides: GlobalThemeOverrides = {
   common: {
-    primaryColor: '#1ea54cFF',
-    primaryColorHover: '#36AD6AFF',
-    primaryColorPressed: '#0C7A43FF',
-    primaryColorSuppl: '#36AD6AFF',
+    primaryColor: '#00ff41FF',
+    primaryColorHover: '#00f260FF',
+    primaryColorPressed: '#02b331FF',
+    primaryColorSuppl: '#00f260FF',
   },
 
   Notification: {
-    color: '#333333',
+    color: '#0a0a0a',
   },
 
   AutoComplete: {
     peers: {
-      InternalSelectMenu: { height: '500px', color: '#1e1e1e' },
+      InternalSelectMenu: { height: '500px', color: '#0a0a0a' },
     },
   },
 
@@ -37,18 +37,34 @@ export const darkThemeOverrides: GlobalThemeOverrides = {
   },
 
   Layout: {
-    color: '#1c1c1c',
-    siderColor: '#232323',
+    color: '#020202',
+    siderColor: '#0a0a0a',
     siderBorderColor: 'transparent',
   },
 
   Card: {
-    color: '#232323',
-    borderColor: '#282828',
+    color: 'rgba(255, 255, 255, 0.03)',
+    borderColor: 'rgba(255, 255, 255, 0.08)',
   },
 
   Table: {
-    tdColor: '#232323',
-    thColor: '#353535',
+    tdColor: '#0a0a0a',
+    thColor: '#1a1a1a',
+  },
+
+  Input: {
+    color: 'rgba(255, 255, 255, 0.03)',
+    colorFocus: 'rgba(255, 255, 255, 0.05)',
+    border: '1px solid rgba(255, 255, 255, 0.08)',
+    borderHover: '1px solid rgba(0, 242, 96, 0.3)',
+    borderFocus: '1px solid rgba(0, 242, 96, 0.5)',
+    boxShadowFocus: '0 0 15px rgba(0, 255, 65, 0.3)',
+  },
+
+  Button: {
+    color: 'rgba(255, 255, 255, 0.03)',
+    colorHover: 'rgba(0, 242, 96, 0.1)',
+    border: '1px solid rgba(255, 255, 255, 0.08)',
+    borderHover: '1px solid rgba(0, 242, 96, 0.3)',
   },
 };

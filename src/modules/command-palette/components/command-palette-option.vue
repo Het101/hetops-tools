@@ -8,17 +8,22 @@ const emit = defineEmits(['activated']);
 const { option } = toRefs(props);
 
 const { selected } = toRefs(props);
+import { useElementHover } from '@vueuse/core';
+const el = ref<HTMLElement | null>(null);
+const isHovered = useElementHover(el);
 </script>
 
 <template>
   <div
+    ref="el"
     role="option"
     :aria-selected="selected"
     :class="{
-      'text-white': selected,
-      'bg-primary': selected,
+      'bg-neutral-800/50': selected && !isHovered,
+      border: true,
+      'border-transparent': true,
     }"
-    w-full flex cursor-pointer items-center overflow-hidden rounded pa-3 transition hover:bg-primary hover:text-white
+    class="w-full flex cursor-pointer items-center overflow-hidden rounded-xl pa-3 transition-colors hover:bg-emerald-500/10 hover:text-[#00f260] hover:border-emerald-500/30"
     @click="() => emit('activated', option)"
   >
     <component :is="option.icon" v-if="option.icon" mr-3 h-30px w-30px shrink-0 op-50 />
