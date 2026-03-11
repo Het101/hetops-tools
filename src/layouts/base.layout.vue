@@ -39,8 +39,8 @@ const tools = computed<ToolCategory[]>(() => [
     <template #sider>
       <RouterLink to="/" class="block mt-6 mb-8 decoration-none" style="display: flex; flex-direction: column; padding: 10px 20px;">
         <div style="display: flex; align-items: center; justify-content: flex-start;">
-            <object class="bi" width="160" height="auto" data="/icon.svg" style="pointer-events: none;" />
-            <span class="text-gray-500 text-xs ml-2 font-mono mt-1">TOOLS</span>
+            <img src="/icon.svg" style="width: 160px; height: auto; display: block;" alt="HetOps Logo" />
+            <span class="text-gray-500 text-xs ml-2 font-mono mt-1" style="font-weight: bold; font-style: italic;">TOOLS</span>
         </div>
         <div class="text-gray-400 text-[10px] mt-2 uppercase tracking-widest font-mono">
           {{ $t('home.subtitle') }}
