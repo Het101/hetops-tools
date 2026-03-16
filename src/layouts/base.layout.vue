@@ -56,28 +56,20 @@ const tools = computed<ToolCategory[]>(() => [
 
         <div class="footer">
           <div>
-            IT-Tools
+            HetOps Tools
 
-            <c-link target="_blank" rel="noopener" :href="`https://github.com/CorentinTh/it-tools/tree/v${version}`">
+            <c-link target="_blank" rel="noopener" :href="`https://github.com/Het101/hetops-tools`">
               v{{ version }}
             </c-link>
-
-            <template v-if="commitSha && commitSha.length > 0">
-              -
-              <c-link
-                target="_blank"
-                rel="noopener"
-                type="primary"
-                :href="`https://github.com/CorentinTh/it-tools/tree/${commitSha}`"
-              >
-                {{ commitSha }}
-              </c-link>
-            </template>
           </div>
           <div>
             © {{ new Date().getFullYear() }}
-            <c-link target="_blank" rel="noopener" href="https://corentin.tech?utm_source=it-tools&utm_medium=footer">
-              Corentin Thomasset
+            <c-link target="_blank" rel="noopener" href="https://hetops.dev">
+              HetOps.dev
+            </c-link>
+            · Based on
+            <c-link target="_blank" rel="noopener" href="https://github.com/CorentinTh/it-tools">
+              IT-Tools
             </c-link>
           </div>
         </div>

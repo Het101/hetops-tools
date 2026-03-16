@@ -10,7 +10,7 @@ import { config } from '@/config';
 
 const toolStore = useToolStore();
 
-useHead({ title: 'HetOps Tools - Developer Toolkit' });
+useHead({ title: 'HetOps Tools — Developer Toolkit' });
 const { t } = useI18n();
 
 const favoriteTools = computed(() => toolStore.favoriteTools);
@@ -29,7 +29,7 @@ function onUpdateFavoriteTools() {
           <div class="text-[10px] font-mono text-gray-400">
             {{ $t('home.follow.p1') }}
             <a
-              href="https://github.com/CorentinTh/it-tools"
+              href="https://github.com/Het101/hetops-tools"
               rel="noopener"
               target="_blank"
               class="text-emerald-400 underline"
@@ -38,7 +38,7 @@ function onUpdateFavoriteTools() {
             >
             {{ $t('home.follow.p2') }}
             <a
-              href="https://x.com/ittoolsdottech"
+              href="https://hetops.dev"
               rel="noopener"
               target="_blank"
               class="text-blue-400 underline"
