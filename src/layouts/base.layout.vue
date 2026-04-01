@@ -116,7 +116,7 @@ const tools = computed<ToolCategory[]>(() => [
         class="fixed bottom-0 left-0 w-full bg-[#0a0a0a] border-t border-[#333] z-[100] flex justify-between items-center px-4 py-1.5 font-mono text-[10px] text-gray-400 shadow-[0_-5px_20px_rgba(0,0,0,0.5)]"
       >
         <div class="flex items-center gap-4">
-          <span class="bg-[#00ff41] text-black px-2 py-0.5 font-bold flex items-center gap-1.5 rounded-sm">NORMAL</span>
+          <span class="bg-[#f59e0b] text-black px-2 py-0.5 font-bold flex items-center gap-1.5 rounded-sm">NORMAL</span>
           <span class="hidden sm:inline-block">hetops/tools</span>
           <span class="text-blue-400 flex items-center gap-1.5">main</span>
           <span class="hidden md:flex text-[#ffbd2e] items-center gap-1.5">v{{ version }}</span>

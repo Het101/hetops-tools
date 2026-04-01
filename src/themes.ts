@@ -16,10 +16,10 @@ export const lightThemeOverrides: GlobalThemeOverrides = {
 
 export const darkThemeOverrides: GlobalThemeOverrides = {
   common: {
-    primaryColor: '#00ff41FF',
-    primaryColorHover: '#00f260FF',
-    primaryColorPressed: '#02b331FF',
-    primaryColorSuppl: '#00f260FF',
+    primaryColor: '#f59e0bFF',
+    primaryColorHover: '#fbbf24FF',
+    primaryColorPressed: '#d97706FF',
+    primaryColorSuppl: '#fbbf24FF',
   },
 
   Notification: {
@@ -56,15 +56,15 @@ export const darkThemeOverrides: GlobalThemeOverrides = {
     color: 'rgba(255, 255, 255, 0.03)',
     colorFocus: 'rgba(255, 255, 255, 0.05)',
     border: '1px solid rgba(255, 255, 255, 0.08)',
-    borderHover: '1px solid rgba(0, 242, 96, 0.3)',
-    borderFocus: '1px solid rgba(0, 242, 96, 0.5)',
-    boxShadowFocus: '0 0 15px rgba(0, 255, 65, 0.3)',
+    borderHover: '1px solid rgba(245, 158, 11, 0.3)',
+    borderFocus: '1px solid rgba(245, 158, 11, 0.5)',
+    boxShadowFocus: '0 0 15px rgba(245, 158, 11, 0.3)',
   },
 
   Button: {
     color: 'rgba(255, 255, 255, 0.03)',
-    colorHover: 'rgba(0, 242, 96, 0.1)',
+    colorHover: 'rgba(245, 158, 11, 0.1)',
     border: '1px solid rgba(255, 255, 255, 0.08)',
-    borderHover: '1px solid rgba(0, 242, 96, 0.3)',
+    borderHover: '1px solid rgba(245, 158, 11, 0.3)',
   },
 };

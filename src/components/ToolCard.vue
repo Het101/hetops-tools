@@ -14,7 +14,7 @@ const theme = useThemeVars();
       <div>
         <div flex items-center justify-between mb-4>
           <n-icon
-            class="text-emerald-500 transition-transform group-hover:scale-110 group-hover:text-[#00f260]"
+            class="text-emerald-500 transition-transform group-hover:scale-110 group-hover:text-[#f59e0b]"
             size="32"
             :component="tool.icon"
           />
@@ -25,7 +25,7 @@ const theme = useThemeVars();
             <FavoriteButton :tool="tool" />
           </div>
         </div>
-        <div class="text-xl font-bold mb-3 text-white group-hover:text-[#00f260] transition-colors">
+        <div class="text-xl font-bold mb-3 text-white group-hover:text-[#f59e0b] transition-colors">
           {{ tool.name }}
         </div>
         <div class="text-sm text-gray-400 line-clamp-3 leading-relaxed">
