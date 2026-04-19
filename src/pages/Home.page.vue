@@ -24,7 +24,7 @@ function onUpdateFavoriteTools() {
 <template>
   <div>
     <div class="grid-wrapper">
-      <div class="grid grid-cols-1 gap-12px lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 mb-4">
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 mb-2">
         <ColoredCard v-if="config.showBanner" :title="$t('home.follow.title')" :icon="IconHeart">
           <div class="text-[10px] font-mono text-gray-400">
             {{ $t('home.follow.p1') }}
@@ -32,7 +32,7 @@ function onUpdateFavoriteTools() {
               href="https://github.com/Het101/hetops-tools"
               rel="noopener"
               target="_blank"
-              class="text-emerald-400 underline"
+              class="text-[#f59e0b] underline"
               :aria-label="$t('home.follow.githubRepository')"
               >GitHub</a
             >
@@ -43,7 +43,7 @@ function onUpdateFavoriteTools() {
               target="_blank"
               class="text-blue-400 underline"
               :aria-label="$t('home.follow.twitterXAccount')"
-              >X</a
+              >hetops.dev</a
             >.
             {{ $t('home.follow.thankYou') }}
           </div>
@@ -52,17 +52,19 @@ function onUpdateFavoriteTools() {
 
       <transition name="height">
         <div v-if="toolStore.favoriteTools.length > 0">
-          <h3
-            class="text-[10px] uppercase tracking-[0.5em] text-gray-600 mb-6 mt-12 font-bold font-mono flex items-center gap-2"
-          >
-            // {{ $t('home.categories.favoriteTools') }}
+          <div class="section-header-row">
+            <h3 class="section-header">
+              <span class="section-slash">//</span>
+              <span>{{ $t('home.categories.favoriteTools') }}</span>
+              <span class="section-count">{{ favoriteTools.length }}</span>
+            </h3>
             <c-tooltip :tooltip="$t('home.categories.favoritesDndToolTip')">
-              <n-icon :component="IconDragDrop" size="14" class="text-gray-500" />
+              <n-icon :component="IconDragDrop" size="13" class="text-gray-500" />
             </c-tooltip>
-          </h3>
+          </div>
           <Draggable
             :list="favoriteTools"
-            class="grid grid-cols-1 gap-12px lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4"
+            class="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4"
             ghost-class="ghost-favorites-draggable"
             item-key="name"
             @end="onUpdateFavoriteTools"
@@ -75,18 +77,26 @@ function onUpdateFavoriteTools() {
       </transition>
 
       <div v-if="toolStore.newTools.length > 0">
-        <h3 class="text-[10px] uppercase tracking-[0.5em] text-gray-600 mb-6 mt-12 font-bold font-mono">
-          // {{ t('home.categories.newestTools') }}
-        </h3>
-        <div class="grid grid-cols-1 gap-12px lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4">
+        <div class="section-header-row">
+          <h3 class="section-header">
+            <span class="section-slash">//</span>
+            <span>{{ t('home.categories.newestTools') }}</span>
+            <span class="section-count">{{ toolStore.newTools.length }}</span>
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4">
           <ToolCard v-for="tool in toolStore.newTools" :key="tool.name" :tool="tool" />
         </div>
       </div>
 
-      <h3 class="text-[10px] uppercase tracking-[0.5em] text-gray-600 mb-6 mt-12 font-bold font-mono">
-        // {{ $t('home.categories.allTools') }}
-      </h3>
-      <div class="grid grid-cols-1 gap-12px lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4">
+      <div class="section-header-row">
+        <h3 class="section-header">
+          <span class="section-slash">//</span>
+          <span>{{ $t('home.categories.allTools') }}</span>
+          <span class="section-count">{{ toolStore.tools.length }}</span>
+        </h3>
+      </div>
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4">
         <ToolCard v-for="tool in toolStore.tools" :key="tool.name" :tool="tool" />
       </div>
     </div>
@@ -94,6 +104,44 @@ function onUpdateFavoriteTools() {
 </template>
 
 <style scoped lang="less">
+.section-header-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.45em;
+  color: #6b7280;
+}
+
+.section-slash {
+  color: #f59e0b;
+  opacity: 0.7;
+}
+
+.section-count {
+  font-size: 9px;
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 4px;
+  padding: 1px 6px;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
 .height-enter-active,
 .height-leave-active {
   transition: all 0.5s ease-in-out;

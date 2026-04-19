@@ -23,7 +23,7 @@ export default defineConfig({
     'divider': 'h-1px bg-current op-10',
     'bg-surface': 'bg-#ffffff dark:bg-[#0a0a0a]',
     'bg-background': 'bg-#f1f5f9 dark:bg-[#020202]',
-    'glass-card': 'bg-[rgba(255,255,255,0.03)] backdrop-blur-[20px] border border-[rgba(255,255,255,0.08)] rounded-[24px] transition-all duration-400 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] hover:border-[rgba(245,158,11,0.5)] hover:-translate-y-[8px]',
+    'glass-card': 'bg-white/90 dark:bg-[rgba(255,255,255,0.04)] shadow-[0_1px_3px_rgba(0,0,0,0.07)] dark:shadow-none border border-[rgba(0,0,0,0.07)] dark:border-[rgba(255,255,255,0.08)] rounded-[16px] transition-all duration-300 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] hover:border-[rgba(245,158,11,0.45)] dark:hover:border-[rgba(245,158,11,0.5)] hover:-translate-y-[4px]',
     'glass-card-shadow': 'shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),0_10px_30px_-10px_rgba(0,0,0,0.5)] hover:shadow-[inset_0_0_0_1px_rgba(245,158,11,0.2),0_20px_40px_rgba(245,158,11,0.15),0_10px_30px_-10px_rgba(0,0,0,0.5)]',
     'gradient-text': 'bg-gradient-to-r from-[#f59e0b] to-[#f97316] text-transparent bg-clip-text',
     'terminal-container': 'bg-[#0a0a0a] border border-[#333] rounded-[12px] flex flex-col overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.5)]',
